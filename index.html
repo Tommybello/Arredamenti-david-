@@ -36,13 +36,13 @@ main{margin:12px;padding:20px}
 <header>
 <h1>ARREDAMENTI DAVID</h1>
 <p>La cucina su misura, pensata per te.</p>
-</header>
+</header>https://formspree.io/f/mqpqdble
 <main>
 <h2>Quanto costa la tua nuova cucina?</h2>
 <p class="intro">Raccontaci come la immagini. Ti ricontatteremo per preparare una proposta personalizzata, senza preventivi automatici.</p>
 <p class="note"><strong>VERSIONE DIMOSTRATIVA — SOLO TEST CON DATI INVENTATI</strong></p>
 
-<form id="kitchenForm">
+<form id="kitchenForm" action="https://formspree.io/f/mqpqdble" method="POST">
 <label for="layout">Composizione della cucina</label>
 <select id="layout" name="composizione" required>
 <option value="Lineare">Lineare</option>
@@ -153,13 +153,10 @@ function updateLayout(){
 layout.addEventListener('change',updateLayout);
 updateLayout();
 
-document.getElementById('kitchenForm').addEventListener('submit',e=>{
- e.preventDefault();
- if(!e.currentTarget.reportValidity())return;
- const result=document.getElementById('result');
- result.textContent='Test completato! Il questionario funziona, ma i dati non sono stati inviati. Collegheremo Formspree dopo aver creato il modulo dedicato.';
- result.style.display='block';
- result.scrollIntoView({behavior:'smooth',block:'nearest'});
+document.getElementById('kitchenForm').addEventListener('submit', function(e) {
+  if (!e.currentTarget.reportValidity()) {
+    e.preventDefault();
+  }
 });
 </script>
 </body>
